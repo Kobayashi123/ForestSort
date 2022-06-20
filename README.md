@@ -4,6 +4,10 @@
 
 git clone https://github.com/Kobayashi123/ForestSort.git<br>
 
+## ローカルリポジトリとワーキングツリーの更新
+
+git pull<br>
+
 ## ブランチの変更
 
 ここでは、main ブランチから temp_branch に移動する。<br>
