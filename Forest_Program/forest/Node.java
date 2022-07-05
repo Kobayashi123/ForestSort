@@ -1,7 +1,12 @@
 package forest;
 
-public class Node extends Object, Component {
+import java.awt.Point;
+import java.awt.Component;
+import java.awt.Rectangle;
+import java.awt.Graphics;
 
+@SuppressWarnings("serial")
+public class Node extends Component {
 	/**
 	 * ノードの大きさ（幅と高さ）を記憶するフィールドです。
 	 */
@@ -26,14 +31,12 @@ public class Node extends Object, Component {
 	 * このクラスのインスタンスを生成するコンストラクタ。
 	 */
 	public Node(String aString) {
-
 	}
 
 	/**
 	 * ノード（節）を描画するメソッドです。
 	 */
 	public void draw(Graphics aGraphics) {
-
 	}
 
 	/**
@@ -75,28 +78,24 @@ public class Node extends Object, Component {
 	 * ノード（節）の大きさを設定するメソッドです。
 	 */
 	public void setExtent(Point aPoint) {
-
 	}
 
 	/**
 	 * ノード（節）の位置を設定するメソッドです。
 	 */
 	public void setLocation(Point aPoint) {
-
 	}
 
 	/**
 	 * ノード（節）の名前を設定するメソッドです。
 	 */
 	public void setName(String aString) {
-
 	}
 
 	/**
 	 * ノード（節）の状態を設定するメソッドです。
 	 */
 	public void setStatus(Integer anInteger) {
-
 	}
 
 	/**
@@ -119,5 +118,4 @@ public class Node extends Object, Component {
 	public String toString() {
 		return null;
 	}
-
 }
