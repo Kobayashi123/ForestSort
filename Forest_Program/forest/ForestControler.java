@@ -1,16 +1,18 @@
 package forest;
 
 import java.awt.event.MouseEvent;
-import mvc.Controler;
+import mvc.Controller;
 
 /**
  * 樹状整列におけるMVCのコントローラ（C）を担うクラスになる。
  */
-public class ForestControler extends Controler {
+public class ForestControler extends Controller
+{
 	/**
 	 * このクラスのインスタンスを生成するコンストラクタ。
 	 */
-	public ForestControler() {
+	public ForestControler()
+	{
 		super();
 	}
 
@@ -18,6 +20,7 @@ public class ForestControler extends Controler {
 	 * マウスクリックしたときに動作するメソッド。
 	 * クリックした位置からノードを割り出す。
 	 */
-	public void mouseClicked(MouseEvent aMouseEvent) {
+	public void mouseClicked(MouseEvent aMouseEvent)
+	{
 	}
 }
