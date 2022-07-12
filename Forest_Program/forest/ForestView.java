@@ -7,6 +7,7 @@ import mvc.View;
 /**
  * 樹状整列におけるMVCのビュー（V）を担うクラス。
  */
+@SuppressWarnings("serial")
 public class ForestView extends View
 {
 

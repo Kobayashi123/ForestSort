@@ -22,7 +22,7 @@ public class Example extends Object
 	 * resource/data/forest.txt<br>
 	 * $ java -Dfile.encoding=UTF-8 -Xmx512m -Xss1024k -jar forest.jar
 	 * resource/data/semilattice.txt<br>
-	 * 
+	 *
 	 * @param arguments 樹状整列データファイルを第1引数とする引数文字列群
 	 */
 	public static void main(String[] arguments)
@@ -42,25 +42,21 @@ public class Example extends Object
 			System.exit(1);
 		}
 
-		/**********
-		 * 
-		 * // MVCを作成する。
-		 * ForestModel aModel = new ForestModel(aFile);
-		 * ForestView aView = new ForestView(aModel);
-		 * 
-		 * // ウィンドウを生成して開く。
-		 * JFrame aWindow = new JFrame(aFile.getName());
-		 * aWindow.getContentPane().add(aView);
-		 * aWindow.setMinimumSize(new Dimension(400, 300));
-		 * aWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 * aWindow.setSize(800, 600);
-		 * aWindow.setLocationRelativeTo(null);
-		 * aWindow.setVisible(true);
-		 * 
-		 * // 樹状整列のアニメーションを行う。
-		 * aModel.animate();
-		 * 
-		 **********/
+		// MVCを作成する。
+		ForestModel aModel = new ForestModel(aFile);
+		ForestView aView = new ForestView(aModel);
+
+		// ウィンドウを生成して開く。
+		JFrame aWindow = new JFrame(aFile.getName());
+		aWindow.getContentPane().add(aView);
+		aWindow.setMinimumSize(new Dimension(400, 300));
+		aWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		aWindow.setSize(800, 600);
+		aWindow.setLocationRelativeTo(null);
+		aWindow.setVisible(true);
+
+		// 樹状整列のアニメーションを行う。
+		aModel.animate();
 
 		return;
 	}
