@@ -20,6 +20,8 @@ public class Branch extends Object
 	 */
 	public Branch(Node from, Node to)
 	{
+		this.start = from;
+		this.end = to;
 	}
 
 	/**
@@ -27,16 +29,28 @@ public class Branch extends Object
 	 */
 	public void draw(Graphics aGraphics)
 	{
+		int startpointx = this.start.getLocation().x + (this.start.getExtent().x / 2);
+		int startpointy = this.start.getLocation().y;
+		int endpointx = this.end.getLocation().x - (this.end.getExtent().x / 2);
+		int endpointy = this.end.getLocation().y;
+
+		aGraphics.drawLine(startpointx, startpointy, endpointx, endpointy);
 	}
 
+	/**
+	 * ブランチ（枝）の終点となるノードを応答するメソッドです。
+	 */
 	public Node end()
 	{
-		return null;
+		return this.end;
 	}
 
+	/**
+	 * ブランチ（枝）の始点となるノードを応答するメソッドです。
+	 */
 	public Node start()
 	{
-		return null;
+		return this.start;
 	}
 
 	/**

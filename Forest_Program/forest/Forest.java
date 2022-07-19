@@ -24,6 +24,13 @@ public class Forest extends Object
 	private ArrayList<Node> nodes;
 
 	/**
+	 * Forestのインスタンスを生成するコンストラクタ
+	 */
+	public Forest()
+	{
+	}
+
+	/**
 	 * ブランチ（枝）を追加するメソッドです。
 	 */
 	public void addBranch(Branch aBranch)
@@ -36,7 +43,7 @@ public class Forest extends Object
 	 */
 	public void addNode(Node aNode)
 	{
-		nodes.add(aNode)
+		this.nodes.add(aNode);
 	}
 
 	/**
