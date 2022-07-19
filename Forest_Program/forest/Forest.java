@@ -11,7 +11,7 @@ public class Forest extends Object
 	/**
 	 * 樹状整列したフォレスト（森）の領域（矩形）を記憶するフィールドです。
 	 */
-	private Rectangle bounds;
+	private Rectangle bounds; // 
 
 	/**
 	 * ブランチ（枝）群（たち）を記憶するフィールドです。
@@ -35,6 +35,7 @@ public class Forest extends Object
 	 */
 	public void addBranch(Branch aBranch)
 	{
+		branches.add(aBranch)
 	}
 
 	/**
@@ -77,6 +78,8 @@ public class Forest extends Object
 
 	public void draw(Graphics aGraphics)
 	{
+		aBranch.draw(aGraphics)
+		aNode.draw(aGraphics)
 	}
 
 	/**
@@ -98,7 +101,7 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> rootNodes()
 	{
-		return null;
+		return null; // ノードの配列(foerest.txtやと3つのobject)
 	}
 
 	/**
@@ -106,6 +109,7 @@ public class Forest extends Object
 	 */
 	protected ArrayList<Node> sortNodes(ArrayList<Node> nodeCollection)
 	{
+
 		return null;
 	}
 
@@ -114,7 +118,7 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> subNodes(Node aNode)
 	{
-		return null;
+		return null;  //　引数が与えられたらそれより下のnodeを判断する
 	}
 
 	/**
@@ -122,6 +126,8 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> superNodes(Node aNode)
 	{
+		
+		}
 		return null;
 	}
 
@@ -138,6 +144,21 @@ public class Forest extends Object
 	 */
 	public Node whichOfNodes(Point aPoint)
 	{
+		int x = aPoint.x
+		int y = aPoint.y
+
+		for(Node aNode:nodes){
+			int xBottomLeft = aNode.getLocation().x // ブランチの左下のx座標
+			int yBottomLeft = aNode.getLocation().y // ブランチの左下のy座標
+			int xUpperRight = xBottomLeft + aNode.stringHeight() // ブランチの右上のx座標
+			int yUpperRight = yBottomLeft + aNode.stringWidth() // ブランチの右上のy座標
+
+			if((xBottomLeft<=x) && (x<=xUpperRight)){
+				if((yBottomLeft<=y) && (y<=yUpperRight)){
+					return aNode
+				}
+			}
+		}
 		return null;
 	}
 }
