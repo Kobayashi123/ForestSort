@@ -11,7 +11,7 @@ public class Forest extends Object
 	/**
 	 * 樹状整列したフォレスト（森）の領域（矩形）を記憶するフィールドです。
 	 */
-	private Rectangle bounds; // 
+	private Rectangle bounds; //
 
 	/**
 	 * ブランチ（枝）群（たち）を記憶するフィールドです。
@@ -35,7 +35,7 @@ public class Forest extends Object
 	 */
 	public void addBranch(Branch aBranch)
 	{
-		branches.add(aBranch)
+		this.branches.add(aBranch);
 	}
 
 	/**
@@ -78,8 +78,8 @@ public class Forest extends Object
 
 	public void draw(Graphics aGraphics)
 	{
-		aBranch.draw(aGraphics)
-		aNode.draw(aGraphics)
+		// aBranch.draw(aGraphics);
+		// aNode.draw(aGraphics);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> subNodes(Node aNode)
 	{
-		return null;  //　引数が与えられたらそれより下のnodeを判断する
+		return null; // 引数が与えられたらそれより下のnodeを判断する
 	}
 
 	/**
@@ -126,8 +126,6 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> superNodes(Node aNode)
 	{
-		
-		}
 		return null;
 	}
 
@@ -144,18 +142,21 @@ public class Forest extends Object
 	 */
 	public Node whichOfNodes(Point aPoint)
 	{
-		int x = aPoint.x
-		int y = aPoint.y
+		int x = aPoint.x;
+		int y = aPoint.y;
 
-		for(Node aNode:nodes){
-			int xBottomLeft = aNode.getLocation().x // ブランチの左下のx座標
-			int yBottomLeft = aNode.getLocation().y // ブランチの左下のy座標
-			int xUpperRight = xBottomLeft + aNode.stringHeight() // ブランチの右上のx座標
-			int yUpperRight = yBottomLeft + aNode.stringWidth() // ブランチの右上のy座標
+		for (Node aNode : nodes)
+		{
+			int xBottomLeft = aNode.getLocation().x;                               // ブランチの左下のx座標
+			int yBottomLeft = aNode.getLocation().y;                               // ブランチの左下のy座標
+			int xUpperRight = xBottomLeft + aNode.stringHeight(aNode.getStatus()); // ブランチの右上のx座標
+			int yUpperRight = yBottomLeft + aNode.stringWidth(aNode.getName());    // ブランチの右上のy座標
 
-			if((xBottomLeft<=x) && (x<=xUpperRight)){
-				if((yBottomLeft<=y) && (y<=yUpperRight)){
-					return aNode
+			if ((xBottomLeft <= x) && (x <= xUpperRight))
+			{
+				if ((yBottomLeft <= y) && (y <= yUpperRight))
+				{
+					return aNode;
 				}
 			}
 		}
