@@ -20,12 +20,10 @@ import mvc.Model;
 public class ForestModel extends Model
 {
 
-	private static List<String> collectionOfStrings = new ArrayList<String>();
-
 	/**
 	 * 樹状整列それ自身を記憶しておくフィールド。
 	 */
-	private ForestModel forest;
+	private Forest forest;
 
 	/**
 	 * ForestModelのインスタンスを生成するコンストラクタ
@@ -33,6 +31,7 @@ public class ForestModel extends Model
 	public ForestModel(File aFile)
 	{
 		super();
+		forest = new Forest();
 		this.read(aFile);
 	}
 
@@ -60,11 +59,11 @@ public class ForestModel extends Model
 	/**
 	 * 樹状整列それ自身を応答するメソッド。
 	 *
-	 * @return ForestModel
+	 * @return Forest
 	 */
-	public ForestModel forest()
+	public Forest forest()
 	{
-		return null;
+		return this.forest;
 	}
 
 	/**
@@ -72,36 +71,71 @@ public class ForestModel extends Model
 	 */
 	protected void read(File aFile)
 	{
+		// List<String> collectionOfStrings = new ArrayList<String>();
 		try
 		{
 			FileInputStream fileInputStream = new FileInputStream(aFile);                          // バイト単位でアクセスするストリーム
 			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8"); // 文字単位でアクセス
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);                 // バッファを用いるリーダー
 			String aString = null;
+
+			int flag = 0;
 			while ((aString = bufferedReader.readLine()) != null) // 一行ずつ読み込みます。
 			{
-				ForestModel.collectionOfStrings.add(aString); // すべての行を記憶している配列リストに加えます。
+				if (aString == "trees:")
+				{
+					flag = 1;
+					continue;
+				}
+				if (aString == "nodes:")
+				{
+					flag = 2;
+					continue;
+				}
+				if (aString == "branches:")
+				{
+					flag = 3;
+					continue;
+				}
+
+				if (flag == 1)
+				{
+					continue;
+				}
+				else if (flag == 2)
+				{
+					Node aNode = new Node(aString);
+					forest.addNode(aNode);
+				}
+				else
+				{
+					// Branch aBranch = new Branch(forest., to)
+					// forest.addBranch(aBranch);
+				}
+				// collectionOfStrings.add(aString); // すべての行を記憶している配列リストに加えます。
 			}
 			bufferedReader.close();
 		}
-		catch (FileNotFoundException anException)
+		catch (FileNotFoundException e)
 		{
-			anException.printStackTrace();
+			e.printStackTrace();
 		}
-		catch (UnsupportedEncodingException anException)
+		catch (UnsupportedEncodingException e)
 		{
-			anException.printStackTrace();
+			e.printStackTrace();
 		}
-		catch (IOException anException)
+		catch (IOException e)
 		{
-			anException.printStackTrace();
+			e.printStackTrace();
 		}
 
-		for (String aString : ForestModel.collectionOfStrings)
-		{
-			System.out.println(aString); // 一行ずつ標準出力に書き出します。
-		}
-		System.out.println("aString.len() = " + collectionOfStrings.size());
+		/*
+		 * for (String aString : collectionOfStrings)
+		 * {
+		 * System.out.println(aString); // 一行ずつ標準出力に書き出します。
+		 * }
+		 * System.out.println("aString.len() = " + collectionOfStrings.size());
+		 */
 	}
 
 	/**
