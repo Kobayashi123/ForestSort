@@ -6,8 +6,7 @@ import java.awt.Rectangle;
 import java.awt.Graphics;
 
 @SuppressWarnings("serial")
-public class Node extends Component
-{
+public class Node extends Component {
 	/**
 	 * ノードの大きさ（幅と高さ）を記憶するフィールドです。
 	 */
@@ -31,26 +30,24 @@ public class Node extends Component
 	/**
 	 * このクラスのインスタンスを生成するコンストラクタ。
 	 */
-	public Node(String aString)
-	{
+	public Node(String aString) {
 		super();
-		this.aString = name;
-		return;
+		String[] array = aString.split(", ");
+		// System.out.println("array0 = " + array[0] + " array1 = " + array[1]);
+		setStatus(Integer.valueOf(array[0]));
+		setName(array[1]);
 	}
 
 	/**
 	 * ノード（節）を描画するメソッドです。
 	 */
-	public void draw(Graphics aGraphics)
-	{
-
+	public void draw(Graphics aGraphics) {
 	}
 
 	/**
 	 * ノード（節）の描画領域を応答するメソッドです。
 	 */
-	public Rectangle getBounds()
-	{
+	public Rectangle getBounds() {
 		Rectangle bounds = new Rectangle();
 		return bounds;
 	}
@@ -58,90 +55,79 @@ public class Node extends Component
 	/**
 	 * ノード（節）の大きさを応答するメソッドです。
 	 */
-	public Point getExtent()
-	{
-		
-		return extent;
+	public Point getExtent() {
+		return this.extent;
 	}
 
 	/**
 	 * ノード（節）の位置を応答するメソッドです。
 	 */
-	public Point getLocation()
-	{
-		return location;
+	public Point getLocation() {
+		return this.location;
 	}
 
 	/**
 	 * ノード（節）の名前を応答するメソッドです。
 	 */
-	public String getName()
-	{
-		return name;
+	public String getName() {
+		return this.name;
 	}
 
 	/**
 	 * ノード（節）の状態を応答するメソッドです。
 	 */
-	public Integer getStatus()
-	{
-		return status;
+	public Integer getStatus() {
+		return this.status;
 	}
 
 	/**
 	 * ノード（節）の大きさを設定するメソッドです。
 	 */
-	public void setExtent(Point aPoint)
-	{
-		this.aPoint = extent;
-
+	public void setExtent(Point aPoint) {
+		this.extent = aPoint;
 	}
 
 	/**
 	 * ノード（節）の位置を設定するメソッドです。
 	 */
-	public void setLocation(Point aPoint)
-	{
-		this.aPoint = location;
+	public void setLocation(Point aPoint) {
+		this.location = aPoint;
 	}
 
 	/**
 	 * ノード（節）の名前を設定するメソッドです。
 	 */
-	public void setName(String aString)
-	{
-		this.aString = name;
+	public void setName(String aString) {
+		this.name = aString;
+		System.out.println("name :" + this.name);
 	}
 
 	/**
 	 * ノード（節）の状態を設定するメソッドです。
 	 */
-	public void setStatus(Integer anInteger)
-	{
-		this.anInteger = status;
+	public void setStatus(Integer anInteger) {
+		this.status = anInteger;
+		System.out.println("status :" + this.status);
 	}
 
 	/**
 	 * 文字列の高さを応答するメソッドです。
 	 */
-	protected int stringHeight(Integer anInteger)
-	{
+	protected int stringHeight(Integer anInteger) {
 		return 0;
 	}
 
 	/**
 	 * 文字列の幅を応答するメソッドです。
 	 */
-	protected int stringWidth(String string)
-	{
+	protected int stringWidth(String string) {
 		return 0;
 	}
 
 	/**
 	 * 自分自身を文字列に変換するメソッドです。
 	 */
-	public String toString()
-	{
+	public String toString() {
 		return null;
 	}
 }

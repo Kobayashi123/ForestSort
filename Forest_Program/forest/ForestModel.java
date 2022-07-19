@@ -82,22 +82,21 @@ public class ForestModel extends Model
 			int flag = 0;
 			while ((aString = bufferedReader.readLine()) != null) // 一行ずつ読み込みます。
 			{
-				if (aString == "trees:")
+				if (aString.equals("trees:"))
 				{
 					flag = 1;
 					continue;
 				}
-				if (aString == "nodes:")
+				if (aString.equals("nodes:"))
 				{
 					flag = 2;
 					continue;
 				}
-				if (aString == "branches:")
+				if (aString.equals("branches:"))
 				{
 					flag = 3;
 					continue;
 				}
-
 				if (flag == 1)
 				{
 					continue;
