@@ -33,6 +33,9 @@ public class Node extends Component
 	 */
 	public Node(String aString)
 	{
+		super();
+		this.aString = name;
+		return;
 	}
 
 	/**
@@ -40,6 +43,7 @@ public class Node extends Component
 	 */
 	public void draw(Graphics aGraphics)
 	{
+
 	}
 
 	/**
@@ -47,7 +51,8 @@ public class Node extends Component
 	 */
 	public Rectangle getBounds()
 	{
-		return null;
+		Rectangle bounds = new Rectangle();
+		return bounds;
 	}
 
 	/**
@@ -55,7 +60,8 @@ public class Node extends Component
 	 */
 	public Point getExtent()
 	{
-		return null;
+		
+		return extent;
 	}
 
 	/**
@@ -63,7 +69,7 @@ public class Node extends Component
 	 */
 	public Point getLocation()
 	{
-		return null;
+		return location;
 	}
 
 	/**
@@ -71,7 +77,7 @@ public class Node extends Component
 	 */
 	public String getName()
 	{
-		return null;
+		return name;
 	}
 
 	/**
@@ -79,7 +85,7 @@ public class Node extends Component
 	 */
 	public Integer getStatus()
 	{
-		return null;
+		return status;
 	}
 
 	/**
@@ -87,6 +93,8 @@ public class Node extends Component
 	 */
 	public void setExtent(Point aPoint)
 	{
+		this.aPoint = extent;
+
 	}
 
 	/**
@@ -94,6 +102,7 @@ public class Node extends Component
 	 */
 	public void setLocation(Point aPoint)
 	{
+		this.aPoint = location;
 	}
 
 	/**
@@ -101,6 +110,7 @@ public class Node extends Component
 	 */
 	public void setName(String aString)
 	{
+		this.aString = name;
 	}
 
 	/**
@@ -108,6 +118,7 @@ public class Node extends Component
 	 */
 	public void setStatus(Integer anInteger)
 	{
+		this.anInteger = status;
 	}
 
 	/**
