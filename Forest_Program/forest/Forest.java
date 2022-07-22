@@ -160,7 +160,16 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> superNodes(Node aNode)
 	{
-		return null;
+		ArrayList<Node> superNodes = new ArrayList<Node> ();
+		for(Branch aBranch : branches)
+		{
+			if(aBranch.end().getStatus().equals(aNode.getStatus()))
+			{
+				superNodes.add(aBranch.end());
+				return this.superNodes(aBranch.end());
+			}
+		}
+		return superNodes;
 	}
 
 	/**
