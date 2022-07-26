@@ -71,7 +71,6 @@ public class ForestModel extends Model
 	 */
 	protected void read(File aFile)
 	{
-		// List<String> collectionOfStrings = new ArrayList<String>();
 		try
 		{
 			FileInputStream fileInputStream = new FileInputStream(aFile);                          // バイト単位でアクセスするストリーム
@@ -97,7 +96,7 @@ public class ForestModel extends Model
 					flag = 3;
 					continue;
 				}
-				if (flag == 1)
+				if (flag == 1) // trees の部分は現時点で読み取らない
 				{
 					continue;
 				}
@@ -108,10 +107,12 @@ public class ForestModel extends Model
 				}
 				else
 				{
-					// Branch aBranch = new Branch(forest., to)
-					// forest.addBranch(aBranch);
+					String[] numbers = aString.split(", ");
+					int from = Integer.parseInt(numbers[0]);
+					int to = Integer.parseInt(numbers[1]);
+					Branch aBranch = new Branch(forest.getNode().get(0), forest.getNode().get(1));
+					forest.addBranch(aBranch);
 				}
-				// collectionOfStrings.add(aString); // すべての行を記憶している配列リストに加えます。
 			}
 			bufferedReader.close();
 		}
