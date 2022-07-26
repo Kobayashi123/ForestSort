@@ -149,8 +149,18 @@ public class Forest extends Object
 	/**
 	 * 引数で指定されたノードのスーパーノード群を応答するメソッドです。
 	 */
-	public ArrayList<Node> superNodes(Node aNode) {
-		return null;
+	public ArrayList<Node> superNodes(Node aNode)
+	{
+		ArrayList<Node> superNodes = new ArrayList<Node> ();
+		for(Branch aBranch : branches)
+		{
+			if(aBranch.end().getStatus().equals(aNode.getStatus()))
+			{
+				superNodes.add(aBranch.end());
+				return this.superNodes(aBranch.end());
+			}
+		}
+		return superNodes;
 	}
 
 	/**
