@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Graphics;
+import java.util.Collections;
 
 public class Forest extends Object
 {
-
 	/**
 	 * 樹状整列したフォレスト（森）の領域（矩形）を記憶するフィールドです。
 	 */
@@ -28,8 +28,10 @@ public class Forest extends Object
 	 */
 	public Forest()
 	{
-		branches = new ArrayList<Branch>();
-		nodes = new ArrayList<Node>();
+
+		this.branches = new ArrayList<Branch>();
+		this.nodes = new ArrayList<Node>();
+
 	}
 
 	/**
@@ -56,19 +58,22 @@ public class Forest extends Object
 	}
 
 	/**
+	 * 樹状整列するセカンドレベル（二番階層）のメソッドです。
+	 */
+
+	public void arrange(ForestModel aModel)
+	{
+	}
+
+	/**
 	 * 樹状整列する再帰レベル（N番階層）のメソッドです。
 	 */
+
 	protected Point arrange(Node aNode, Point aPoint, ForestModel aModel)
 	{
 		return null;
 	}
 
-	/**
-	 * 樹状整列するセカンドレベル（二番階層）のメソッドです。
-	 */
-	public void arrange(ForestModel aModel)
-	{
-	}
 
 	/**
 	 * フォレスト（木・林・森・亜格子状の森）の領域（矩形）を応答するメソッドです。
@@ -109,9 +114,21 @@ public class Forest extends Object
 	/**
 	 * フォレストの根元（ルート）となるノード群を応答するメソッドです。
 	 */
+
 	public ArrayList<Node> rootNodes()
 	{
-		return null; // ノードの配列(foerest.txtやと3つのobject)
+		ArrayList<Node> roots = new ArrayList<Node> ();
+		for(Branch aBranch : branches)
+		{
+			for(Node aNode : nodes)
+			{
+				if(aBranch.end().getStatus() == aNode.getStatus())
+				{
+					roots.add(aNode);
+				}
+			}
+		}
+		return roots; // ノードの配列(foerest.txtやと3つのobject)
 	}
 
 	/**
@@ -120,7 +137,25 @@ public class Forest extends Object
 	protected ArrayList<Node> sortNodes(ArrayList<Node> nodeCollection)
 	{
 
-		return null;
+		ArrayList<String> nodeStrings = new ArrayList<String> ();
+		ArrayList<Node> sortNodes = new ArrayList<Node> ();
+		for(Node aNode : nodeCollection)
+		{
+			nodeStrings.add(aNode.getName());
+		}
+		Collections.sort(nodeStrings);
+
+		for(String aStringNode: nodeStrings)
+		{
+			for(Node aNode : nodeCollection)
+			{
+				if(aStringNode.equals(aNode.getName()))
+				{
+					sortNodes.add(aNode);
+				}
+			}
+		}
+		return sortNodes;
 	}
 
 	/**
@@ -136,7 +171,17 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> superNodes(Node aNode)
 	{
-		return null;
+
+		ArrayList<Node> superNodes = new ArrayList<Node> ();
+		for(Branch aBranch : branches)
+		{
+			if(aBranch.end().getStatus().equals(aNode.getStatus()))
+			{
+				superNodes.add(aBranch.end());
+				return this.superNodes(aBranch.end());
+			}
+		}
+		return superNodes;
 	}
 
 	/**
@@ -155,10 +200,11 @@ public class Forest extends Object
 		int x = aPoint.x;
 		int y = aPoint.y;
 
-		for (Node aNode : nodes)
+		for(Node aNode : nodes)
 		{
 			int xBottomLeft = aNode.getLocation().x;                               // ブランチの左下のx座標
 			int yBottomLeft = aNode.getLocation().y;                               // ブランチの左下のy座標
+
 			int xUpperRight = xBottomLeft + aNode.stringHeight(aNode.getStatus()); // ブランチの右上のx座標
 			int yUpperRight = yBottomLeft + aNode.stringWidth(aNode.getName());    // ブランチの右上のy座標
 

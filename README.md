@@ -14,6 +14,12 @@ git pull<br>
 git branch temp_branch<br>
 git switch temp_branch<br>
 
+## プログラムを変更後
+
+Programディレクトリで以下の操作を行う<br>
+make format<br>
+make test<br>
+
 ## 変更したファイルをインデックスに追加
 
 ここでは、temp_file を編集しインデックスに追加<br>
