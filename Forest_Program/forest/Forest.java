@@ -31,7 +31,6 @@ public class Forest extends Object
 
 		this.branches = new ArrayList<Branch>();
 		this.nodes = new ArrayList<Node>();
-
 	}
 
 	/**
@@ -73,7 +72,6 @@ public class Forest extends Object
 	{
 		return null;
 	}
-
 
 	/**
 	 * フォレスト（木・林・森・亜格子状の森）の領域（矩形）を応答するメソッドです。
@@ -117,12 +115,12 @@ public class Forest extends Object
 
 	public ArrayList<Node> rootNodes()
 	{
-		ArrayList<Node> roots = new ArrayList<Node> ();
-		for(Branch aBranch : branches)
+		ArrayList<Node> roots = new ArrayList<Node>();
+		for (Branch aBranch : branches)
 		{
-			for(Node aNode : nodes)
+			for (Node aNode : nodes)
 			{
-				if(aBranch.end().getStatus() == aNode.getStatus())
+				if (aBranch.end().getStatus() == aNode.getStatus())
 				{
 					roots.add(aNode);
 				}
@@ -137,19 +135,19 @@ public class Forest extends Object
 	protected ArrayList<Node> sortNodes(ArrayList<Node> nodeCollection)
 	{
 
-		ArrayList<String> nodeStrings = new ArrayList<String> ();
-		ArrayList<Node> sortNodes = new ArrayList<Node> ();
-		for(Node aNode : nodeCollection)
+		ArrayList<String> nodeStrings = new ArrayList<String>();
+		ArrayList<Node> sortNodes = new ArrayList<Node>();
+		for (Node aNode : nodeCollection)
 		{
 			nodeStrings.add(aNode.getName());
 		}
 		Collections.sort(nodeStrings);
 
-		for(String aStringNode: nodeStrings)
+		for (String aStringNode : nodeStrings)
 		{
-			for(Node aNode : nodeCollection)
+			for (Node aNode : nodeCollection)
 			{
-				if(aStringNode.equals(aNode.getName()))
+				if (aStringNode.equals(aNode.getName()))
 				{
 					sortNodes.add(aNode);
 				}
@@ -172,10 +170,10 @@ public class Forest extends Object
 	public ArrayList<Node> superNodes(Node aNode)
 	{
 
-		ArrayList<Node> superNodes = new ArrayList<Node> ();
-		for(Branch aBranch : branches)
+		ArrayList<Node> superNodes = new ArrayList<Node>();
+		for (Branch aBranch : branches)
 		{
-			if(aBranch.end().getStatus().equals(aNode.getStatus()))
+			if (aBranch.end().getStatus().equals(aNode.getStatus()))
 			{
 				superNodes.add(aBranch.end());
 				return this.superNodes(aBranch.end());
@@ -200,10 +198,10 @@ public class Forest extends Object
 		int x = aPoint.x;
 		int y = aPoint.y;
 
-		for(Node aNode : nodes)
+		for (Node aNode : nodes)
 		{
-			int xBottomLeft = aNode.getLocation().x;                               // ブランチの左下のx座標
-			int yBottomLeft = aNode.getLocation().y;                               // ブランチの左下のy座標
+			int xBottomLeft = aNode.getLocation().x; // ブランチの左下のx座標
+			int yBottomLeft = aNode.getLocation().y; // ブランチの左下のy座標
 
 			int xUpperRight = xBottomLeft + aNode.stringHeight(aNode.getStatus()); // ブランチの右上のx座標
 			int yUpperRight = yBottomLeft + aNode.stringWidth(aNode.getName());    // ブランチの右上のy座標
