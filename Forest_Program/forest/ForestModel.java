@@ -128,14 +128,6 @@ public class ForestModel extends Model
 		{
 			e.printStackTrace();
 		}
-
-		/*
-		 * for (String aString : collectionOfStrings)
-		 * {
-		 * System.out.println(aString); // 一行ずつ標準出力に書き出します。
-		 * }
-		 * System.out.println("aString.len() = " + collectionOfStrings.size());
-		 */
 	}
 
 	/**
