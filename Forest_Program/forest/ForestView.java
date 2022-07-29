@@ -3,7 +3,6 @@ package forest;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,11 +21,6 @@ public class ForestView extends View
 	public ForestView(ForestModel aModel)
 	{
 		super(aModel);
-		aModel.addDependent(this);
-		controller = new Controller();
-		controller.setModel(aModel);
-		controller.setView(this);
-		off
 	}
 
 	/**
@@ -34,17 +28,8 @@ public class ForestView extends View
 	 */
 	public void paintComponent(Graphics aGraphics)
 	{
-		int width = this.getWidth();
-		int height = this.getHeight();
 		aGraphics.setColor(Color.white);
-		aGraphics.fillRect(0, 0, width, height);
-
-		BufferedImage picture = model.picture();
-		aGraphics.setColor(Color.white);
-		aGraphics.fillRect(0, 0, width, height);
-		aGraphics.setColor(Color.black);
-
-		ForestModel aForestModel = (ForestModel)(this.model);
+		// ForestModel aForestModel = (ForestModel) (this.model);
 	}
 
 	/**
