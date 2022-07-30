@@ -70,6 +70,33 @@ public class Forest extends Object
 
 	protected Point arrange(Node aNode, Point aPoint, ForestModel aModel)
 	{
+		if (aNode.getStatus() < 100){
+			aNode.getLocation();
+		}
+		try
+        {
+            Thread.sleep(Constants.SleepTick);
+        }
+        catch (InterruptedException anException)
+        {
+            System.err.println(anException);
+            throw new RuntimeException(anException.toString());
+        }
+
+		int aSubNode = aPoint.y;
+		int count = 0;
+
+		ArrayList<Node> subNodes = new ArrayList<Node>();
+		subNodes = subNodes(aNode);
+
+		// for(Node aSubNode : subNodes){
+
+		// }
+
+
+
+		aNode.setStatus(aNode.getStatus()+100); // satusに100足すことで訪れたかどうか判断する
+
 		return null;
 	}
 
@@ -161,7 +188,17 @@ public class Forest extends Object
 	 */
 	public ArrayList<Node> subNodes(Node aNode)
 	{
-		return null; // 引数が与えられたらそれより下のnodeを判断する
+		ArrayList<Node> subNodes = new ArrayList<Node>();
+		for(Branch aBranch : branches){
+			if(aNode.getStatus() == aBranch.start().getStatus()){
+				for(Node oneNode : nodes){
+					if(aNode.getStatus() == aBranch.end().getStatus()){
+						subNodes.add(oneNode);
+					}
+				}
+			}
+		}
+		return subNodes; // 引数が与えられたらそれより下のnodeを判断する
 	}
 
 	/**
