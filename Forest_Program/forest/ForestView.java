@@ -28,8 +28,7 @@ public class ForestView extends View
 	 */
 	public void paintComponent(Graphics aGraphics)
 	{
-		aGraphics.setColor(Color.white);
-		// ForestModel aForestModel = (ForestModel) (this.model);
+		aGraphics.setColor(Constants.BackgroundColor);
 	}
 
 	/**

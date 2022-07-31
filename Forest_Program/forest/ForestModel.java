@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.ArrayList;
@@ -147,6 +146,6 @@ public class ForestModel extends Model
 	 */
 	public ArrayList<Node> roots()
 	{
-		return null;
+		return this.forest.rootNodes();
 	}
 }
