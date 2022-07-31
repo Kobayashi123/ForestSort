@@ -21,9 +21,7 @@ public class Branch extends Object
 	public Branch(Node from, Node to)
 	{
 		this.start = from;
-		System.out.println("start: " + this.start.getName());
 		this.end = to;
-		System.out.println("end: " + this.end.getName());
 	}
 
 	/**
@@ -60,6 +58,7 @@ public class Branch extends Object
 	 */
 	public String toString()
 	{
-		return null;
+		return "start: " + this.start.toString() + "   "
+		        + "end: " + this.end.toString();
 	}
 }

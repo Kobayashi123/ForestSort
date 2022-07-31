@@ -28,7 +28,6 @@ public class Forest extends Object
 	 */
 	public Forest()
 	{
-
 		this.branches = new ArrayList<Branch>();
 		this.nodes = new ArrayList<Node>();
 	}
@@ -39,6 +38,7 @@ public class Forest extends Object
 	public void addBranch(Branch aBranch)
 	{
 		this.branches.add(aBranch);
+		System.out.println(aBranch.toString());
 	}
 
 	/**
@@ -47,6 +47,7 @@ public class Forest extends Object
 	public void addNode(Node aNode)
 	{
 		this.nodes.add(aNode);
+		System.out.println(aNode.toString());
 	}
 
 	/**
@@ -70,18 +71,19 @@ public class Forest extends Object
 
 	protected Point arrange(Node aNode, Point aPoint, ForestModel aModel)
 	{
-		if (aNode.getStatus() < 100){
+		if (aNode.getStatus() < 100)
+		{
 			aNode.getLocation();
 		}
 		try
-        {
-            Thread.sleep(Constants.SleepTick);
-        }
-        catch (InterruptedException anException)
-        {
-            System.err.println(anException);
-            throw new RuntimeException(anException.toString());
-        }
+		{
+			Thread.sleep(Constants.SleepTick);
+		}
+		catch (InterruptedException anException)
+		{
+			System.err.println(anException);
+			throw new RuntimeException(anException.toString());
+		}
 
 		int aSubNode = aPoint.y;
 		int count = 0;
@@ -93,9 +95,7 @@ public class Forest extends Object
 
 		// }
 
-
-
-		aNode.setStatus(aNode.getStatus()+100); // satusに100足すことで訪れたかどうか判断する
+		aNode.setStatus(aNode.getStatus() + 100); // satusに100足すことで訪れたかどうか判断する
 
 		return null;
 	}
@@ -189,10 +189,14 @@ public class Forest extends Object
 	public ArrayList<Node> subNodes(Node aNode)
 	{
 		ArrayList<Node> subNodes = new ArrayList<Node>();
-		for(Branch aBranch : branches){
-			if(aNode.getStatus() == aBranch.start().getStatus()){
-				for(Node oneNode : nodes){
-					if(aNode.getStatus() == aBranch.end().getStatus()){
+		for (Branch aBranch : branches)
+		{
+			if (aNode.getStatus() == aBranch.start().getStatus())
+			{
+				for (Node oneNode : nodes)
+				{
+					if (aNode.getStatus() == aBranch.end().getStatus())
+					{
 						subNodes.add(oneNode);
 					}
 				}

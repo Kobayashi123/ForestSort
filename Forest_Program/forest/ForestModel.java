@@ -108,9 +108,9 @@ public class ForestModel extends Model
 				else
 				{
 					String[] numbers = aString.split(", ");
-					int from = Integer.parseInt(numbers[0]);
-					int to = Integer.parseInt(numbers[1]);
-					Branch aBranch = new Branch(forest.getNode().get(0), forest.getNode().get(1));
+					int from = Integer.parseInt(numbers[0]) - 1;
+					int to = Integer.parseInt(numbers[1]) - 1;
+					Branch aBranch = new Branch(forest.getNode().get(from), forest.getNode().get(to));
 					forest.addBranch(aBranch);
 				}
 			}

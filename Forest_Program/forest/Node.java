@@ -35,7 +35,6 @@ public class Node extends Component
 	{
 		super();
 		String[] array = aString.split(", ");
-		// System.out.println("array0 = " + array[0] + " array1 = " + array[1]);
 		setStatus(Integer.valueOf(array[0]));
 		setName(array[1]);
 	}
@@ -110,7 +109,7 @@ public class Node extends Component
 	public void setName(String aString)
 	{
 		this.name = aString;
-		System.out.println("name :" + this.name);
+		// System.out.println("name :" + this.name);
 	}
 
 	/**
@@ -119,7 +118,7 @@ public class Node extends Component
 	public void setStatus(Integer anInteger)
 	{
 		this.status = anInteger;
-		System.out.println("status :" + this.status);
+		// System.out.println("status :" + this.status);
 	}
 
 	/**
@@ -143,6 +142,6 @@ public class Node extends Component
 	 */
 	public String toString()
 	{
-		return null;
+		return this.name + ": " + Integer.toString(this.status);
 	}
 }
