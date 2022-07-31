@@ -109,7 +109,6 @@ public class Node extends Component
 	public void setName(String aString)
 	{
 		this.name = aString;
-		// System.out.println("name :" + this.name);
 	}
 
 	/**
@@ -118,13 +117,12 @@ public class Node extends Component
 	public void setStatus(Integer anInteger)
 	{
 		this.status = anInteger;
-		// System.out.println("status :" + this.status);
 	}
 
 	/**
 	 * 文字列の高さを応答するメソッドです。
 	 */
-	protected int stringHeight(Integer anInteger)
+	protected int stringHeight(String string)
 	{
 		return 0;
 	}

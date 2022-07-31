@@ -13,17 +13,17 @@ public class Constants extends Object
 	/**
 	 * ノードを描く際のラベルの背景色を表します。
 	 */
-	public static Color BackgroundColor;
+	public static Color BackgroundColor = Color.WHITE;
 
 	/**
 	 * ノードを描く際のラベルのフォントを表します。
 	 */
-	public static Font DefaultFont;
+	public static Font DefaultFont = new Font("Serif", Font.PLAIN, 12);
 
 	/**
 	 * ノードを描く際のラベルの文字色を表します。
 	 */
-	public static Color ForegroundColor;
+	public static Color ForegroundColor = Color.BLACK;
 
 	/**
 	 * ノード群を樹状に整列させる際にノード同士の間隔を表します。

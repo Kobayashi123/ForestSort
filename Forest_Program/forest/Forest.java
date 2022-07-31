@@ -108,10 +108,19 @@ public class Forest extends Object
 		return null;
 	}
 
+	/**
+	 * フォレスト（木・林・森・亜格子状の森）を描画するメソッドです。
+	 */
 	public void draw(Graphics aGraphics)
 	{
-		// aBranch.draw(aGraphics);
-		// aNode.draw(aGraphics);
+		for (Node aNode : nodes)
+		{
+			aNode.draw(aGraphics);
+		}
+		for (Branch aBranch : branches)
+		{
+			aBranch.draw(aGraphics);
+		}
 	}
 
 	/**
@@ -244,8 +253,8 @@ public class Forest extends Object
 			int xBottomLeft = aNode.getLocation().x; // ブランチの左下のx座標
 			int yBottomLeft = aNode.getLocation().y; // ブランチの左下のy座標
 
-			int xUpperRight = xBottomLeft + aNode.stringHeight(aNode.getStatus()); // ブランチの右上のx座標
-			int yUpperRight = yBottomLeft + aNode.stringWidth(aNode.getName());    // ブランチの右上のy座標
+			int xUpperRight = xBottomLeft + aNode.stringHeight(aNode.getName()); // ブランチの右上のx座標
+			int yUpperRight = yBottomLeft + aNode.stringWidth(aNode.getName());  // ブランチの右上のy座標
 
 			if ((xBottomLeft <= x) && (x <= xUpperRight))
 			{
