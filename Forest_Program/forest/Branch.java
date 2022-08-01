@@ -13,6 +13,9 @@ public class Branch extends Object
 	 */
 	private Node start;
 
+	/**
+	 * ブランチ（枝）の終点となるノードを記憶するフィールド。
+	 */
 	private Node end;
 
 	/**
@@ -38,19 +41,19 @@ public class Branch extends Object
 	}
 
 	/**
-	 * ブランチ（枝）の終点となるノードを応答するメソッドです。
-	 */
-	public Node end()
-	{
-		return this.end;
-	}
-
-	/**
 	 * ブランチ（枝）の始点となるノードを応答するメソッドです。
 	 */
 	public Node start()
 	{
 		return this.start;
+	}
+
+	/**
+	 * ブランチ（枝）の終点となるノードを応答するメソッドです。
+	 */
+	public Node end()
+	{
+		return this.end;
 	}
 
 	/**
